@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/dev/EricProjects/Test/MainWindow.ui'
+# Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from pyqtgraph import ImageView
+
+from Scanners.Display_SSI import Display_SSI
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -38,7 +41,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.scanner = Display_Scanner_SSI(self.Tab_Scan)
+        self.scanner = Display_SSI(self.Tab_Scan)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -94,7 +97,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Microwave Scanner"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Grote"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Scan), _translate("MainWindow", "Scan"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Analyze), _translate("MainWindow", "Analyze"))
         self.menuFile.setTitle(_translate("MainWindow", "Fi&le"))
@@ -102,8 +105,9 @@ class Ui_MainWindow(object):
         self.actionExit.setText(_translate("MainWindow", "&Exit"))
         self.actionSave.setText(_translate("MainWindow", "&Save"))
 
-from Display_Scanner_SSI import Display_Scanner_SSI
-from pyqtgraph import ImageView
+
+
+
 
 if __name__ == "__main__":
     import sys

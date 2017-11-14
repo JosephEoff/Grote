@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project Grote -->
+<!-- Saved: 2017-11-14, 22:52:15 -->
+<!-- Copyright (C) 2017 ,  -->
+<Project version="5.1">
+  <Language>en_US</Language>
+  <Hash>db21216ce3efd4bff7f6bc6431c5c21e368387e1</Hash>
+  <ProgLanguage mixed="0">Python3</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Version>0.1</Version>
+  <Author></Author>
+  <Email></Email>
+  <Sources>
+    <Source>DataStructures/ScannerDataColumn.py</Source>
+    <Source>DataStructures/ScannerDataPoint.py</Source>
+    <Source>DataStructures/ScannerData_Base.py</Source>
+    <Source>DataStructures/__init__.py</Source>
+    <Source>Drivers/ComPort.py</Source>
+    <Source>Drivers/CommunicationsError.py</Source>
+    <Source>Drivers/Karl.py</Source>
+    <Source>Drivers/ScannerComport.py</Source>
+    <Source>Drivers/Ui_ScannerComport.py</Source>
+    <Source>Drivers/__init__.py</Source>
+    <Source>Grote.py</Source>
+    <Source>Scanners/Display_Base.py</Source>
+    <Source>Scanners/Display_SSI.py</Source>
+    <Source>Scanners/Display_Thermometer.py</Source>
+    <Source>Scanners/Ui_Display_SSI.py</Source>
+    <Source>Scanners/Ui_Display_Thermometer.py</Source>
+    <Source>Scanners/__init__.py</Source>
+    <Source>Scratch/Planck.py</Source>
+    <Source>Scratch/__init__.py</Source>
+    <Source>Ui_MainWindow.py</Source>
+    <Source>__init__.py</Source>
+  </Sources>
+  <Forms>
+    <Form>Drivers/ScannerComport.ui</Form>
+    <Form>MainWindow.ui</Form>
+    <Form>Scanners/Display_Scanner_SSI.ui</Form>
+    <Form>Scanners/Display_Scanner_Thermometer.ui</Form>
+  </Forms>
+  <Translations/>
+  <Resources/>
+  <Interfaces/>
+  <Others/>
+  <MainScript>Grote.py</MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS"/>
+  </FiletypeAssociations>
+</Project>

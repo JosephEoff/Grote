@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Microwave Scanner</string>
+   <string>Grote</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="enabled">
