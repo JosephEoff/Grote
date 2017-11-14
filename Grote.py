@@ -1,12 +1,15 @@
 from PyQt5 import  QtWidgets
 from PyQt5.QtCore import  QCoreApplication
+from PyQt5.QtWidgets import QFileDialog,  QMessageBox
 
 import os
 import io
 import numpy as np
-from PyQt5.QtWidgets import QFileDialog,  QMessageBox
 
 from Ui_MainWindow import Ui_MainWindow
+
+#Named for Grote Reber, who made the first radio maps of the sky.
+#https://en.wikipedia.org/wiki/Grote_Reber
 
 class GroteMainWindow(Ui_MainWindow):
     def __init__(self):
