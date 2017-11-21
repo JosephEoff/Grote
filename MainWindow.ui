@@ -48,7 +48,7 @@
              <enum>QLayout::SetNoConstraint</enum>
             </property>
             <item>
-             <widget class="Display_Scanner_SSI" name="scanner" native="true">
+             <widget class="Display_SSI" name="scanner" native="true">
               <property name="sizePolicy">
                <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                 <horstretch>0</horstretch>
@@ -155,9 +155,9 @@
    <header>pyqtgraph</header>
   </customwidget>
   <customwidget>
-   <class>Display_Scanner_SSI</class>
+   <class>Display_SSI</class>
    <extends>QWidget</extends>
-   <header>Display_Scanner_SSI</header>
+   <header>Scanners.Display_SSI</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

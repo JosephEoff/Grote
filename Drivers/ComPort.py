@@ -3,7 +3,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from Drivers.Ui_ScannerComport import Ui_ScannerComport
 import QSerialPortInfo
 
-
 class ScannerComport(Ui_ScannerComport):
     def __init__(self):
         super(ScannerComport, self).__init__()

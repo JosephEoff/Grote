@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2017-11-14, 22:52:15 -->
+<!-- Saved: 2017-11-21, 23:21:52 -->
 <!-- Copyright (C) 2017 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -18,8 +18,11 @@
     <Source>DataStructures/__init__.py</Source>
     <Source>Drivers/ComPort.py</Source>
     <Source>Drivers/CommunicationsError.py</Source>
+    <Source>Drivers/DriverSelector.py</Source>
     <Source>Drivers/Karl.py</Source>
     <Source>Drivers/ScannerComport.py</Source>
+    <Source>Drivers/Ui_DriverSelector.py</Source>
+    <Source>Drivers/Ui_Karl.py</Source>
     <Source>Drivers/Ui_ScannerComport.py</Source>
     <Source>Drivers/__init__.py</Source>
     <Source>Grote.py</Source>
@@ -27,6 +30,8 @@
     <Source>Scanners/Display_SSI.py</Source>
     <Source>Scanners/Display_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_SSI.py</Source>
+    <Source>Scanners/Ui_Display_Scanner_SSI.py</Source>
+    <Source>Scanners/Ui_Display_Scanner_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_Thermometer.py</Source>
     <Source>Scanners/__init__.py</Source>
     <Source>Scratch/Planck.py</Source>
@@ -35,10 +40,12 @@
     <Source>__init__.py</Source>
   </Sources>
   <Forms>
+    <Form>Drivers/DriverSelector.ui</Form>
+    <Form>Drivers/Karl.ui</Form>
     <Form>Drivers/ScannerComport.ui</Form>
     <Form>MainWindow.ui</Form>
-    <Form>Scanners/Display_Scanner_SSI.ui</Form>
-    <Form>Scanners/Display_Scanner_Thermometer.ui</Form>
+    <Form>Scanners/Display_SSI.ui</Form>
+    <Form>Scanners/Display_Thermometer.ui</Form>
   </Forms>
   <Translations/>
   <Resources/>

@@ -7,9 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from pyqtgraph import ImageView
-
-from Scanners.Display_SSI import Display_SSI
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -105,9 +102,8 @@ class Ui_MainWindow(object):
         self.actionExit.setText(_translate("MainWindow", "&Exit"))
         self.actionSave.setText(_translate("MainWindow", "&Save"))
 
-
-
-
+from Scanners.Display_SSI import Display_SSI
+from pyqtgraph import ImageView
 
 if __name__ == "__main__":
     import sys

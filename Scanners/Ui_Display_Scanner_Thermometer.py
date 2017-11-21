@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_Thermometer.ui'
+# Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_Scanner_Thermometer.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
@@ -8,18 +8,18 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Display_Thermometer(object):
-    def setupUi(self, Display_Thermometer):
-        Display_Thermometer.setObjectName("Display_Thermometer")
-        Display_Thermometer.resize(202, 174)
+class Ui_Display_Scanner_Thermometer(object):
+    def setupUi(self, Display_Scanner_Thermometer):
+        Display_Scanner_Thermometer.setObjectName("Display_Scanner_Thermometer")
+        Display_Scanner_Thermometer.resize(202, 174)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(Display_Thermometer.sizePolicy().hasHeightForWidth())
-        Display_Thermometer.setSizePolicy(sizePolicy)
-        self.gridLayout_2 = QtWidgets.QGridLayout(Display_Thermometer)
+        sizePolicy.setHeightForWidth(Display_Scanner_Thermometer.sizePolicy().hasHeightForWidth())
+        Display_Scanner_Thermometer.setSizePolicy(sizePolicy)
+        self.gridLayout_2 = QtWidgets.QGridLayout(Display_Scanner_Thermometer)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.groupBox = QtWidgets.QGroupBox(Display_Thermometer)
+        self.groupBox = QtWidgets.QGroupBox(Display_Scanner_Thermometer)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -85,29 +85,29 @@ class Ui_Display_Thermometer(object):
         self.gridLayout.addWidget(self.labelTemperature, 4, 0, 1, 1)
         self.gridLayout_2.addWidget(self.groupBox, 0, 0, 1, 1)
 
-        self.retranslateUi(Display_Thermometer)
-        QtCore.QMetaObject.connectSlotsByName(Display_Thermometer)
+        self.retranslateUi(Display_Scanner_Thermometer)
+        QtCore.QMetaObject.connectSlotsByName(Display_Scanner_Thermometer)
 
-    def retranslateUi(self, Display_Thermometer):
+    def retranslateUi(self, Display_Scanner_Thermometer):
         _translate = QtCore.QCoreApplication.translate
-        Display_Thermometer.setWindowTitle(_translate("Display_Thermometer", "Form"))
-        self.groupBox.setTitle(_translate("Display_Thermometer", "Thermometer"))
-        self.buttonStop.setText(_translate("Display_Thermometer", "Stop"))
-        self.label.setText(_translate("Display_Thermometer", "Temperature"))
-        self.buttonRun.setText(_translate("Display_Thermometer", "Run"))
-        self.comboBoxUnit.setItemText(0, _translate("Display_Thermometer", "K"))
-        self.comboBoxUnit.setItemText(1, _translate("Display_Thermometer", "C"))
-        self.comboBoxUnit.setItemText(2, _translate("Display_Thermometer", "F"))
-        self.labelTemperature.setText(_translate("Display_Thermometer", "0.0"))
+        Display_Scanner_Thermometer.setWindowTitle(_translate("Display_Scanner_Thermometer", "Form"))
+        self.groupBox.setTitle(_translate("Display_Scanner_Thermometer", "Thermometer"))
+        self.buttonStop.setText(_translate("Display_Scanner_Thermometer", "Stop"))
+        self.label.setText(_translate("Display_Scanner_Thermometer", "Temperature"))
+        self.buttonRun.setText(_translate("Display_Scanner_Thermometer", "Run"))
+        self.comboBoxUnit.setItemText(0, _translate("Display_Scanner_Thermometer", "K"))
+        self.comboBoxUnit.setItemText(1, _translate("Display_Scanner_Thermometer", "C"))
+        self.comboBoxUnit.setItemText(2, _translate("Display_Scanner_Thermometer", "F"))
+        self.labelTemperature.setText(_translate("Display_Scanner_Thermometer", "0.0"))
 
 from ScannerComport import ScannerComport
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Display_Thermometer = QtWidgets.QWidget()
-    ui = Ui_Display_Thermometer()
-    ui.setupUi(Display_Thermometer)
-    Display_Thermometer.show()
+    Display_Scanner_Thermometer = QtWidgets.QWidget()
+    ui = Ui_Display_Scanner_Thermometer()
+    ui.setupUi(Display_Scanner_Thermometer)
+    Display_Scanner_Thermometer.show()
     sys.exit(app.exec_())
 

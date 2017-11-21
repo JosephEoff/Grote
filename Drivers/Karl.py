@@ -45,7 +45,7 @@ class Karl(object):
         value="0"
         answerstring=str.strip(requeststring,"Q")
         if scanstring==None:
-            raise CommunicationsError("Expected Response: " + answerstring + " Received: 'None" )
+            raise CommunicationsError("Expected Response: " + answerstring + " Received: None" )
             return
         if scanstring=="":
             return value

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Display_Scanner_SSI</class>
- <widget class="QWidget" name="Display_Scanner_SSI">
+ <class>Display_SSI</class>
+ <widget class="QWidget" name="Display_SSI">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -81,7 +81,7 @@
        </widget>
       </item>
       <item row="0" column="0" colspan="2">
-       <widget class="ScannerComport" name="comport" native="true">
+       <widget class="DriverSelector" name="comport" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
@@ -119,9 +119,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ScannerComport</class>
+   <class>DriverSelector</class>
    <extends>QWidget</extends>
-   <header>ScannerComport</header>
+   <header>Drivers.DriverSelector</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

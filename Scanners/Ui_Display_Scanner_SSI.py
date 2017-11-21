@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_SSI.ui'
+# Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_Scanner_SSI.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
@@ -8,19 +8,19 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Display_SSI(object):
-    def setupUi(self, Display_SSI):
-        Display_SSI.setObjectName("Display_SSI")
-        Display_SSI.resize(226, 230)
+class Ui_Display_Scanner_SSI(object):
+    def setupUi(self, Display_Scanner_SSI):
+        Display_Scanner_SSI.setObjectName("Display_Scanner_SSI")
+        Display_Scanner_SSI.resize(226, 230)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(Display_SSI.sizePolicy().hasHeightForWidth())
-        Display_SSI.setSizePolicy(sizePolicy)
-        Display_SSI.setMinimumSize(QtCore.QSize(0, 0))
-        self.gridLayout_2 = QtWidgets.QGridLayout(Display_SSI)
+        sizePolicy.setHeightForWidth(Display_Scanner_SSI.sizePolicy().hasHeightForWidth())
+        Display_Scanner_SSI.setSizePolicy(sizePolicy)
+        Display_Scanner_SSI.setMinimumSize(QtCore.QSize(0, 0))
+        self.gridLayout_2 = QtWidgets.QGridLayout(Display_Scanner_SSI)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.groupBox = QtWidgets.QGroupBox(Display_SSI)
+        self.groupBox = QtWidgets.QGroupBox(Display_Scanner_SSI)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -74,26 +74,26 @@ class Ui_Display_SSI(object):
         self.gridLayout.addWidget(self.label_2, 2, 0, 1, 2)
         self.gridLayout_2.addWidget(self.groupBox, 0, 0, 1, 1)
 
-        self.retranslateUi(Display_SSI)
-        QtCore.QMetaObject.connectSlotsByName(Display_SSI)
+        self.retranslateUi(Display_Scanner_SSI)
+        QtCore.QMetaObject.connectSlotsByName(Display_Scanner_SSI)
 
-    def retranslateUi(self, Display_SSI):
+    def retranslateUi(self, Display_Scanner_SSI):
         _translate = QtCore.QCoreApplication.translate
-        Display_SSI.setWindowTitle(_translate("Display_SSI", "Form"))
-        self.groupBox.setTitle(_translate("Display_SSI", "Signal Strength Indicator"))
-        self.label_SSI.setText(_translate("Display_SSI", "0.0"))
-        self.buttonStop.setText(_translate("Display_SSI", "Stop"))
-        self.buttonRun.setText(_translate("Display_SSI", "Run"))
-        self.label_2.setText(_translate("Display_SSI", "Signal Strength"))
+        Display_Scanner_SSI.setWindowTitle(_translate("Display_Scanner_SSI", "Form"))
+        self.groupBox.setTitle(_translate("Display_Scanner_SSI", "Signal Strength Indicator"))
+        self.label_SSI.setText(_translate("Display_Scanner_SSI", "0.0"))
+        self.buttonStop.setText(_translate("Display_Scanner_SSI", "Stop"))
+        self.buttonRun.setText(_translate("Display_Scanner_SSI", "Run"))
+        self.label_2.setText(_translate("Display_Scanner_SSI", "Signal Strength"))
 
-from Drivers.DriverSelector import DriverSelector
+from DriverDelector import DriverSelector
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Display_SSI = QtWidgets.QWidget()
-    ui = Ui_Display_SSI()
-    ui.setupUi(Display_SSI)
-    Display_SSI.show()
+    Display_Scanner_SSI = QtWidgets.QWidget()
+    ui = Ui_Display_Scanner_SSI()
+    ui.setupUi(Display_Scanner_SSI)
+    Display_Scanner_SSI.show()
     sys.exit(app.exec_())
 
