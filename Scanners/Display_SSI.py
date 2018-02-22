@@ -19,12 +19,11 @@ class Display_SSI( QWidget,  Ui_Display_SSI,  Display_Base):
         if self.scanner != None:
             self.scanner.cancelScan()
             self.scanner=None
-            self.comport.releaseComport()
     
     def run(self):
         if self.scanner!=None:
             return
-        self.scanner=Scanner_SSI(self.comport.getComport(), 1)
+        self.scanner=Scanner_SSI(self.selector.getDriver(), 1)
         self.scanner.UpdateSignal.connect(self.displaySSI)
         self.scanner.ErrorSignal.connect(self.handleError)
         self.scanner.start()

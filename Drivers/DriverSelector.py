@@ -2,23 +2,27 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QSettings
 
 from Drivers.Ui_DriverSelector import Ui_DriverSelector
+from Drivers.Karl import Karl
 from Drivers.ScannerComport import ScannerComport
 
 class DriverSelector( QWidget,  Ui_DriverSelector):
     def  __init__(self,parent):
        super().__init__(parent)
+       self.driver=None
        self.SettingsGroupName='Driver'
        self.setupUi(self)
+       self.changeDriver()
+
 
     def setupUi(self, parent):
         super(DriverSelector, self).setupUi(parent)
         self.initializeDriverSelectorListl() 
-        self.loadSettings()
         self.radioButtonShowDriverSettings.setChecked(True)
         self.radioButtonShowDriverSettings.toggled.connect(self.toggleExpansion)
         self.comboBoxDriverSelector.currentIndexChanged.connect(self.triggerSaveSettings)
         self.comboBoxDriverSelector.currentIndexChanged.connect(self.changeDriver)
-        self.changeDriver()
+        self.loadSettings()
+
         
     def initializeDriverSelectorListl(self):
         self.comboBoxDriverSelector.addItem("Karl")
@@ -52,10 +56,14 @@ class DriverSelector( QWidget,  Ui_DriverSelector):
     def changeDriver(self):
         self.removeDriver()
         if self.comboBoxDriverSelector.currentText()=="Karl":
-            self.gridLayoutDriver.addWidget(ScannerComport(self))
+            self.driver=Karl(self)
+            self.gridLayoutDriver.addWidget(self.driver)
             
     def removeDriver(self):
         while self.gridLayoutDriver.count():
             child = self.gridLayoutDriver.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
+    
+    def getDriver(self):
+        return self.driver;

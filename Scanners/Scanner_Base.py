@@ -7,24 +7,26 @@ class ScannerBase(QThread):
     UpdateSignal=pyqtSignal(object)
     ErrorSignal=pyqtSignal(object)
     
-    def __init__(self, Comport, OversamplingCount): 
+    def __init__(self, driver, OversamplingCount): 
         super(ScannerBase, self).__init__()
-        self.Comport=Comport
         self.OversamplingCount=OversamplingCount
         self.keepRunning=False
-        self.driver=None
         self.keepRunning=True
+        self.driver=driver
     
     def __del__(self):
         self.wait()
-    
+        
     def cancelScan(self):
         self.keepRunning=False
         if not self.driver == None:
             self.driver.CancelCommand()
-            
+            self.driver.disconnectDriver()
+
     def run(self):
-        self.driver=Karl(self.Comport)
+        if self.driver==None:
+            return
+        self.driver.prepareForOperation()
         if self.driver.initializedOK():
             self.doRunScan()
         else:

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2017-11-21, 23:21:52 -->
-<!-- Copyright (C) 2017 ,  -->
+<!-- Saved: 2018-02-19, 21:15:28 -->
+<!-- Copyright (C) 2018 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
   <Hash>db21216ce3efd4bff7f6bc6431c5c21e368387e1</Hash>
@@ -19,6 +19,7 @@
     <Source>Drivers/ComPort.py</Source>
     <Source>Drivers/CommunicationsError.py</Source>
     <Source>Drivers/DriverSelector.py</Source>
+    <Source>Drivers/Driver_Base.py</Source>
     <Source>Drivers/Karl.py</Source>
     <Source>Drivers/ScannerComport.py</Source>
     <Source>Drivers/Ui_DriverSelector.py</Source>
@@ -29,6 +30,9 @@
     <Source>Scanners/Display_Base.py</Source>
     <Source>Scanners/Display_SSI.py</Source>
     <Source>Scanners/Display_Thermometer.py</Source>
+    <Source>Scanners/Scanner_Base.py</Source>
+    <Source>Scanners/Scanner_SSI.py</Source>
+    <Source>Scanners/Scanner_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_Thermometer.py</Source>

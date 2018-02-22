@@ -1,22 +1,41 @@
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import QSettings
+import time
+
 from Drivers.CommunicationsError import CommunicationsError
 
-class Karl(object):
-    def __init__(self, Comport,  MaxTimeout_mS=30000):
+from Drivers.Ui_Karl import Ui_Widget_Karl
+from Drivers.Driver_Base import Driver_Base
+
+class Karl( QWidget , Ui_Widget_Karl,  Driver_Base ):
+    def __init__(self,  parent, MaxTimeout_mS=30000):
+        super().__init__(parent)
+        self.setupUi(self)
         self.REPLY_TIMEOUT_MS=100
         self.SettingsGroupName='ComPort'
         self.ReplyTimeout_mS=MaxTimeout_mS
         self.Cancel=False
-        self.Comport=Comport
-        if self.Comport==None:
+        #self.Comport=self.comportUI.getComport()
+        if self.comportUI.getComport()==None:
             return
-        self.Comport.timeout= self.REPLY_TIMEOUT_MS  
-        self.Comport.write_timeout=self.REPLY_TIMEOUT_MS
+        self.comportUI.getComport().timeout= self.REPLY_TIMEOUT_MS  
+        self.comportUI.getComport().write_timeout=self.REPLY_TIMEOUT_MS
         
     def initializedOK(self):
-        if self.Comport==None:
+        if self.comportUI.getComport()==None:
             return False
-        return self.Comport.isOpen()
+        return self.comportUI.getComport().isOpen()
             
+    def prepareForOperation(self):
+        self.openComport()
+        
+    def openComport(self):        
+        if self.comportUI.getComport()==None:
+            return
+        self.comportUI.lockComport()
+        #Wait two seconds.  Once the comport has been opened, you have to wait two seconds for the Arduino to be ready
+        time.sleep(2)
+        
     def ReadInitialValues(self):
         if self.Cancel:
             return
@@ -63,20 +82,26 @@ class Karl(object):
         
     def CancelCommand(self):
         self.Cancel=True
+     
+    def disconnectDriver(self):
+        self.Cancel=True
+        if self.comportUI==None:
+            return
+        self.comportUI.releaseComport()
         
     def sendcommand(self,commandstring):
-        if self.Comport!=None:
+        if self.comportUI.getComport()==None:
+            raise CommunicationsError("No Comport, command not sent: " + commandstring)
+            return None
+        else:
             try:
-                self.Comport.write(bytearray(commandstring+chr(13),  'utf-8'))
-                self.Comport.flush()
+                self.comportUI.getComport().write(bytearray(commandstring+chr(13),  'utf-8'))
+                self.comportUI.getComport().flush()
             except:
                 raise CommunicationsError("Write failed.")
                 
-            return self.getReply()          
-        else:
-            raise CommunicationsError("No Comport, command not sent: " + commandstring)
-            return None
-            
+            return self.getReply()      
+      
     def getReply(self):
         self.Cancel=False
         replystring=''
@@ -96,7 +121,7 @@ class Karl(object):
     def readLine(self):
         reply=bytearray()
         try:
-            reply=self.Comport.readline()
+            reply=self.comportUI.getComport().readline()
         except:
             pass
         return reply

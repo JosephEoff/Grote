@@ -10,19 +10,21 @@ from Drivers.Ui_ScannerComport import Ui_ScannerComport
 class ScannerComport( QWidget,  Ui_ScannerComport):
     def  __init__(self,parent):
        super().__init__(parent)
+       self.comport=None 
        self.SettingsGroupName='ComPort'
        self.setupUi(self)
-       self.comport=None 
+       self.createComport()
 
     def setupUi(self, parent):
         super(ScannerComport, self).setupUi(parent)
         self.initializePortListControl() 
-        self.initializeBaudRateControl()
-        self.loadSettings()
+        self.initializeBaudRateControl()      
         self.radioButtonExpand.setChecked(True)
         self.radioButtonExpand.toggled.connect(self.toggleExpansion)
-        self.comboBox_BaudRate.currentIndexChanged.connect(self.triggerSaveSettings)
-        self.comboBox_SerialPort.currentIndexChanged.connect(self.triggerSaveSettings)
+        self.comboBox_BaudRate.currentIndexChanged.connect(self.handleChangedSetting)
+        self.comboBox_SerialPort.currentIndexChanged.connect(self.handleChangedSetting)
+        self.loadSettings()
+        self.createComport()
      
     def toggleExpansion(self):
         if self.radioButtonExpand.isChecked():
@@ -31,8 +33,9 @@ class ScannerComport( QWidget,  Ui_ScannerComport):
         else:
             self.groupBox_Hider.hide()
 
-    def triggerSaveSettings(self,  index):
+    def handleChangedSetting(self,  index):
         self.saveSettings()
+        self.createComport()
         
     def saveSettings(self ):
         settings=QSettings()
@@ -65,9 +68,9 @@ class ScannerComport( QWidget,  Ui_ScannerComport):
         for rate in serial.Serial.BAUDRATES:
             self.comboBox_BaudRate.addItem(str(rate))
 
-    def getComport(self):
+    def createComport(self):
         try:            
-            self.groupBox_Hider.setEnabled(False)
+            #self.groupBox_Hider.setEnabled(False)
             self.comport=serial.Serial()
             self.comport.port=self.comboBox_SerialPort.currentText()    
             self.comport.baudrate=int(self.comboBox_BaudRate.currentText())
@@ -78,19 +81,28 @@ class ScannerComport( QWidget,  Ui_ScannerComport):
             self.comport.stopbits=serial.STOPBITS_ONE
             self.comport.databits=serial.EIGHTBITS
             self.comport.dtr=True
-            self.comport.open( )   
-#         #Arduino Gendenkzeit - homage on the reboot time for the Arduino
-            time.sleep(2)
+            #self.comport.open( )   
+       #Arduino Gendenkzeit - homage on the reboot time for the Arduino
+            #time.sleep(2)
         except:
             self.groupBox_Hider.setEnabled(True)
             self.comport=None
             self.initializePortListControl()
-            
+        
+    def getComport(self):
         return self.comport
 
     def releaseComport(self):
         self.groupBox_Hider.setEnabled(True)
         if self.comport!=None:
             self.comport.close()
+            
+    def lockComport(self):
+        if self.comport!=None:
+            if self.comport.isOpen():
+                return
+            self.groupBox_Hider.setEnabled(False)
+            self.comport.open()
+            
 
 

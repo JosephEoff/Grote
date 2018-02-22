@@ -8,25 +8,35 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(400, 300)
+class Ui_Widget_Karl(object):
+    def setupUi(self, Widget_Karl):
+        Widget_Karl.setObjectName("Widget_Karl")
+        Widget_Karl.resize(337, 249)
+        Widget_Karl.setMinimumSize(QtCore.QSize(100, 50))
+        self.verticalLayout = QtWidgets.QVBoxLayout(Widget_Karl)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setObjectName("gridLayout")
+        self.comportUI = ScannerComport(Widget_Karl)
+        self.comportUI.setObjectName("comportUI")
+        self.gridLayout.addWidget(self.comportUI, 0, 0, 1, 1)
+        self.verticalLayout.addLayout(self.gridLayout)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Widget_Karl)
+        QtCore.QMetaObject.connectSlotsByName(Widget_Karl)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Widget_Karl):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Widget_Karl.setWindowTitle(_translate("Widget_Karl", "Form"))
 
+from Drivers.ScannerComport import ScannerComport
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    Widget_Karl = QtWidgets.QWidget()
+    ui = Ui_Widget_Karl()
+    ui.setupUi(Widget_Karl)
+    Widget_Karl.show()
     sys.exit(app.exec_())
 
