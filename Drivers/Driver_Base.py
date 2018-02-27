@@ -3,8 +3,11 @@
 class Driver_Base (object):
     def  __init__(self):
         self.samplingrates=[]
+        self.samplingrateinex=0
         self.frequencyBands=[]
+        self.frequencybandindex=0
         self.polarizations=[]
+        self.polarisationindex=0
         self.x_home=0
         self.y_home=0
         self.x_max=0
@@ -13,13 +16,11 @@ class Driver_Base (object):
     def ReadParametersFromDevice(self):
         self.samplingrates=self.__splitOptionStringToList(self.__ReadSamplingRateStringFromDevice())
         self.frequencyBands=self.__splitOptionStringToList(self.__ReadFrequencyBandsStringFromDevice)
-        self.polarizations=self.__ReadPolarizationsStringFromDevice
-           #Read motion ranges
-        #Query current sampling rate
-        #query current band
-        #query current polarizations
-        #Need the current values for display and for further (real) use
-        #
+        self.polarizations=self.__splitOptionStringToList(self.__ReadPolarizationsStringFromDevice())
+        self.polarisationindex=self.__GetPolarizationIndexFromDevice()
+        self.frequencybandindex=self.__GetFrequencyBandIndexFromDevice()
+        self.samplingrateinex= self.__GetSamplingRateIndexFromDevice()
+        self.ReadInitialValues()
 
     def ReadInitialValues(self):
         pass
@@ -52,6 +53,18 @@ class Driver_Base (object):
         
     def __ReadPolarizationsStringFromDevice(self):
         #Implement in the derived class
-        return ""    
+        return "" 
+    
+    def __GetPolarizationIndexFromDevice(self):
+        #Implement in the derived class
+        return ""
+        
+    def __GetFrequencyBandIndexFromDevice(self):
+        #Implement in the derived class
+        return "" 
+        
+    def __GetSamplingRateIndexFromDevice(self):
+        #Implement in the derived class
+        return "" 
     
     

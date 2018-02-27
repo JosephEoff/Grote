@@ -15,7 +15,6 @@ class Karl( QWidget , Ui_Widget_Karl,  Driver_Base ):
         self.SettingsGroupName='ComPort'
         self.ReplyTimeout_mS=MaxTimeout_mS
         self.Cancel=False
-        #self.Comport=self.comportUI.getComport()
         if self.comportUI.getComport()==None:
             return
         self.comportUI.getComport().timeout= self.REPLY_TIMEOUT_MS  
@@ -35,6 +34,15 @@ class Karl( QWidget , Ui_Widget_Karl,  Driver_Base ):
         self.comportUI.lockComport()
         #Wait two seconds.  Once the comport has been opened, you have to wait two seconds for the Arduino to be ready
         time.sleep(2)
+        
+    def __ReadSamplingRateStringFromDevice(self):
+        return self.RequestValueFromScanner("QRS")
+       
+    def __ReadFrequencyBandsStringFromDevice(self):
+        return self.RequestValueFromScanner("QBS")
+        
+    def __ReadPolarizationsStringFromDevice(self):
+        return self.RequestValueFromScanner("QPS")
         
     def ReadInitialValues(self):
         if self.Cancel:
