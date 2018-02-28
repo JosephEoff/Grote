@@ -126,6 +126,7 @@
     <property name="title">
      <string>Fi&amp;le</string>
     </property>
+    <addaction name="actionImport_CSV_Convert_dBm_to_mW"/>
     <addaction name="actionImport_CSV"/>
     <addaction name="actionSave"/>
     <addaction name="actionExit"/>
@@ -145,6 +146,11 @@
   <action name="actionSave">
    <property name="text">
     <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="actionImport_CSV_Convert_dBm_to_mW">
+   <property name="text">
+    <string>Import CSV (Convert dBm to mW)</string>
    </property>
   </action>
  </widget>

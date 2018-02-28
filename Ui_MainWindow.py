@@ -83,6 +83,9 @@ class Ui_MainWindow(object):
         self.actionExit.setObjectName("actionExit")
         self.actionSave = QtWidgets.QAction(MainWindow)
         self.actionSave.setObjectName("actionSave")
+        self.actionImport_CSV_Convert_dBm_to_mW = QtWidgets.QAction(MainWindow)
+        self.actionImport_CSV_Convert_dBm_to_mW.setObjectName("actionImport_CSV_Convert_dBm_to_mW")
+        self.menuFile.addAction(self.actionImport_CSV_Convert_dBm_to_mW)
         self.menuFile.addAction(self.actionImport_CSV)
         self.menuFile.addAction(self.actionSave)
         self.menuFile.addAction(self.actionExit)
@@ -101,6 +104,7 @@ class Ui_MainWindow(object):
         self.actionImport_CSV.setText(_translate("MainWindow", "&Import CSV"))
         self.actionExit.setText(_translate("MainWindow", "&Exit"))
         self.actionSave.setText(_translate("MainWindow", "&Save"))
+        self.actionImport_CSV_Convert_dBm_to_mW.setText(_translate("MainWindow", "Import CSV (Convert dBm to mW)"))
 
 from Scanners.Display_SSI import Display_SSI
 from pyqtgraph import ImageView
