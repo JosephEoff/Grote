@@ -12,6 +12,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(292, 286)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/Icons/Dish_Icon"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setEnabled(True)
         self.centralWidget.setObjectName("centralWidget")
@@ -108,6 +111,7 @@ class Ui_MainWindow(object):
 
 from Scanners.Display_SSI import Display_SSI
 from pyqtgraph import ImageView
+import resources_rc
 
 if __name__ == "__main__":
     import sys

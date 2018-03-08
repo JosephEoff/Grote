@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2018-02-19, 21:15:28 -->
+<!-- Saved: 2018-03-08, 22:06:40 -->
 <!-- Copyright (C) 2018 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -42,6 +42,7 @@
     <Source>Scratch/__init__.py</Source>
     <Source>Ui_MainWindow.py</Source>
     <Source>__init__.py</Source>
+    <Source>resources_rc.py</Source>
   </Sources>
   <Forms>
     <Form>Drivers/DriverSelector.ui</Form>
@@ -52,7 +53,9 @@
     <Form>Scanners/Display_Thermometer.ui</Form>
   </Forms>
   <Translations/>
-  <Resources/>
+  <Resources>
+    <Resource>resources.qrc</Resource>
+  </Resources>
   <Interfaces/>
   <Others/>
   <MainScript>Grote.py</MainScript>

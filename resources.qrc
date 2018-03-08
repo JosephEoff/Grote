@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file alias="Dish_Icon">Resources/Grote_Antenna.png</file>
+  </qresource>
+</RCC>
