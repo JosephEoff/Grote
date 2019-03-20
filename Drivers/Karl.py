@@ -1,13 +1,12 @@
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QSettings
 import time
-
 from Drivers.CommunicationsError import CommunicationsError
 
 from Drivers.Ui_Karl import Ui_Widget_Karl
 from Drivers.Driver_Base import Driver_Base
 
-class Karl( QWidget , Ui_Widget_Karl,  Driver_Base ):
+class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
     def __init__(self,  parent, MaxTimeout_mS=30000):
         super().__init__(parent)
         self.setupUi(self)

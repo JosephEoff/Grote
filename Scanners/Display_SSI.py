@@ -6,7 +6,7 @@ from Scanners.Display_Base import Display_Base
 class Display_SSI( QWidget,  Ui_Display_SSI,  Display_Base):
     def __init__(self, parent):
         super().__init__(parent)
-        self.setupUi(self)
+        self.setupUi(parent)
         self.scanner=None
         self.scannerThread=None
 

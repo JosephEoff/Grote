@@ -26,7 +26,16 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <property name="spacing">
@@ -137,7 +146,7 @@
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>0</height>
+               <height>32</height>
               </size>
              </property>
              <item>
@@ -161,7 +170,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Serial Port</string>
+         <string>Seria&amp;l Port</string>
         </property>
        </widget>
       </item>

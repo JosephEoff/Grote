@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Drivers/ScannerComport.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -82,7 +82,7 @@ class Ui_ScannerComport(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.comboBox_BaudRate.sizePolicy().hasHeightForWidth())
         self.comboBox_BaudRate.setSizePolicy(sizePolicy)
-        self.comboBox_BaudRate.setMinimumSize(QtCore.QSize(0, 0))
+        self.comboBox_BaudRate.setMinimumSize(QtCore.QSize(0, 32))
         self.comboBox_BaudRate.setObjectName("comboBox_BaudRate")
         self.comboBox_BaudRate.addItem("")
         self.formLayout_Settings.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.comboBox_BaudRate)
@@ -108,7 +108,7 @@ class Ui_ScannerComport(object):
         self.comboBox_SerialPort.setItemText(0, _translate("ScannerComport", "-"))
         self.label_2.setText(_translate("ScannerComport", "Baud Rate"))
         self.comboBox_BaudRate.setItemText(0, _translate("ScannerComport", "-"))
-        self.radioButtonExpand.setText(_translate("ScannerComport", "Serial Port"))
+        self.radioButtonExpand.setText(_translate("ScannerComport", "Seria&l Port"))
 
 
 if __name__ == "__main__":

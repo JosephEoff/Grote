@@ -1,5 +1,4 @@
 
-
 class Driver_Base (object):
     def  __init__(self):
         self.samplingrates=[]
@@ -22,31 +21,31 @@ class Driver_Base (object):
         self.samplingrateinex= self.__GetSamplingRateIndexFromDevice()
         self.ReadInitialValues()
 
-    def ReadInitialValues(self):
-        pass
-        
-    def initializedOK(self):
-        pass
-        
-    def prepareForOperation(self):
-        pass
-
     def __splitOptionStringToList(self, StringToSplit):
         if not StringToSplit:
             return []
         items=StringToSplit.split(",")
         return items;
-        
+
+    def ReadInitialValues(self):
+        pass
+
+    def initializedOK(self):
+        pass
+
+    def prepareForOperation(self):
+        pass
+
     def getSamplingRatesList(self):
         return self.samplingrates
-        
+
     def SetSamplingRate_Index(self,  SamplingRateIndex):
         pass
-        
+
     def __ReadSamplingRateStringFromDevice(self):
         #Implement in the derived class
         return ""
-        
+
     def __ReadFrequencyBandsStringFromDevice(self):
         #Implement in the derived class
         return ""    
@@ -54,7 +53,7 @@ class Driver_Base (object):
     def __ReadPolarizationsStringFromDevice(self):
         #Implement in the derived class
         return "" 
-    
+
     def __GetPolarizationIndexFromDevice(self):
         #Implement in the derived class
         return ""
@@ -66,5 +65,7 @@ class Driver_Base (object):
     def __GetSamplingRateIndexFromDevice(self):
         #Implement in the derived class
         return "" 
+    
+
     
     

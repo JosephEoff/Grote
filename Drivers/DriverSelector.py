@@ -1,11 +1,12 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import QSettings
+from PyQt5.QtCore import QSettings,  pyqtSignal
 
 from Drivers.Ui_DriverSelector import Ui_DriverSelector
 from Drivers.Karl import Karl
-from Drivers.ScannerComport import ScannerComport
 
 class DriverSelector( QWidget,  Ui_DriverSelector):
+    selectedDriverChanged=pyqtSignal()
+    
     def  __init__(self,parent):
        super().__init__(parent)
        self.driver=None
@@ -22,7 +23,6 @@ class DriverSelector( QWidget,  Ui_DriverSelector):
         self.comboBoxDriverSelector.currentIndexChanged.connect(self.triggerSaveSettings)
         self.comboBoxDriverSelector.currentIndexChanged.connect(self.changeDriver)
         self.loadSettings()
-
         
     def initializeDriverSelectorListl(self):
         self.comboBoxDriverSelector.addItem("Karl")

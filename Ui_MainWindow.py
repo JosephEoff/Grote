@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/MainWindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(292, 286)
+        MainWindow.resize(358, 388)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/Dish_Icon"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -29,6 +29,23 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
         self.tabWidget.setSizePolicy(sizePolicy)
         self.tabWidget.setObjectName("tabWidget")
+        self.Tab_Driver = QtWidgets.QWidget()
+        self.Tab_Driver.setObjectName("Tab_Driver")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.Tab_Driver)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.driver = DriverSelector(self.Tab_Driver)
+        self.driver.setMinimumSize(QtCore.QSize(100, 100))
+        self.driver.setObjectName("driver")
+        self.horizontalLayout_4.addWidget(self.driver)
+        self.gridLayout_2.addLayout(self.horizontalLayout_4, 0, 0, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem, 0, 1, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem1, 1, 0, 1, 1)
+        self.tabWidget.addTab(self.Tab_Driver, "")
         self.Tab_Scan = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
@@ -41,7 +58,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.scanner = Display_SSI(self.Tab_Scan)
+        self.scanner = Scanner_Selector(self.Tab_Scan)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -50,10 +67,10 @@ class Ui_MainWindow(object):
         self.scanner.setObjectName("scanner")
         self.horizontalLayout_3.addWidget(self.scanner)
         self.gridLayout.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem1, 0, 1, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout.addItem(spacerItem2, 1, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem3, 0, 1, 1, 1)
         self.tabWidget.addTab(self.Tab_Scan, "")
         self.Tab_Analyze = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
@@ -75,7 +92,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 292, 30))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 358, 30))
         self.menuBar.setObjectName("menuBar")
         self.menuFile = QtWidgets.QMenu(self.menuBar)
         self.menuFile.setObjectName("menuFile")
@@ -95,13 +112,14 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Grote"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Scan), _translate("MainWindow", "Scan"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Driver), _translate("MainWindow", "Driver"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Scan), _translate("MainWindow", "Scanner"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Tab_Analyze), _translate("MainWindow", "Analyze"))
         self.menuFile.setTitle(_translate("MainWindow", "Fi&le"))
         self.actionImport_CSV.setText(_translate("MainWindow", "&Import CSV"))
@@ -109,7 +127,8 @@ class Ui_MainWindow(object):
         self.actionSave.setText(_translate("MainWindow", "&Save"))
         self.actionImport_CSV_Convert_dBm_to_mW.setText(_translate("MainWindow", "Import CSV (Convert dBm to mW)"))
 
-from Scanners.Display_SSI import Display_SSI
+from Drivers.DriverSelector import DriverSelector
+from Scanners.Scanner_Selector import Scanner_Selector
 from pyqtgraph import ImageView
 import resources_rc
 

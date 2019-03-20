@@ -51,6 +51,7 @@ class GroteMainWindow(Ui_MainWindow):
         data=data/10
         data=np.power(10, data)
         return data
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -59,3 +60,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+

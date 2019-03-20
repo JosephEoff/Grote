@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>292</width>
-    <height>286</height>
+    <width>358</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,8 +33,58 @@
          </sizepolicy>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
+        <widget class="QWidget" name="Tab_Driver">
+         <attribute name="title">
+          <string>Driver</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetNoConstraint</enum>
+            </property>
+            <item>
+             <widget class="DriverSelector" name="driver" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
         <widget class="QWidget" name="Tab_Scan">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
@@ -43,7 +93,7 @@
           </sizepolicy>
          </property>
          <attribute name="title">
-          <string>Scan</string>
+          <string>Scanner</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
@@ -52,7 +102,7 @@
              <enum>QLayout::SetNoConstraint</enum>
             </property>
             <item>
-             <widget class="Display_SSI" name="scanner" native="true">
+             <widget class="Scanner_Selector" name="scanner" native="true">
               <property name="sizePolicy">
                <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                 <horstretch>0</horstretch>
@@ -122,7 +172,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>292</width>
+     <width>358</width>
      <height>30</height>
     </rect>
    </property>
@@ -165,9 +215,15 @@
    <header>pyqtgraph</header>
   </customwidget>
   <customwidget>
-   <class>Display_SSI</class>
+   <class>DriverSelector</class>
    <extends>QWidget</extends>
-   <header>Scanners.Display_SSI</header>
+   <header>Drivers.DriverSelector</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Scanner_Selector</class>
+   <extends>QWidget</extends>
+   <header>Scanners.Scanner_Selector</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

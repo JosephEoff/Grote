@@ -1,6 +1,5 @@
 from PyQt5.QtCore import QThread
 from PyQt5.QtCore import pyqtSignal
-from Drivers.Karl import Karl
 from Drivers.CommunicationsError import CommunicationsError
 
 class ScannerBase(QThread):

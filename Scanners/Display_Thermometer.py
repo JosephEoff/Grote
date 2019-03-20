@@ -1,10 +1,10 @@
-from Ui_Display_Scanner_Thermometer import Ui_Display_Scanner_Thermometer
-from Scanner_SSI import Scanner_SSI
+from Scanners.Ui_Display_Thermometer import Ui_Display_Thermometer
+from Scanners.Scanner_SSI import Scanner_SSI
 from PyQt5.QtWidgets import QWidget
-from Display_Scanner_Base import Display_Scanner_Base
+from Scanners.Display_Base import Display_Base
 
 
-class Display_Thermometer( QWidget,  Ui_Display_Scanner_Thermometer,  Display_Scanner_Base):
+class Display_Thermometer( QWidget,  Ui_Display_Thermometer,  Display_Base):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)

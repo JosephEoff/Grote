@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2018-03-08, 22:06:40 -->
-<!-- Copyright (C) 2018 ,  -->
+<!-- Saved: 2019-03-09, 18:00:13 -->
+<!-- Copyright (C) 2019 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
   <Hash>db21216ce3efd4bff7f6bc6431c5c21e368387e1</Hash>
@@ -32,11 +32,13 @@
     <Source>Scanners/Display_Thermometer.py</Source>
     <Source>Scanners/Scanner_Base.py</Source>
     <Source>Scanners/Scanner_SSI.py</Source>
+    <Source>Scanners/Scanner_Selector.py</Source>
     <Source>Scanners/Scanner_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_Thermometer.py</Source>
+    <Source>Scanners/Ui_ScannerSelector.py</Source>
     <Source>Scanners/__init__.py</Source>
     <Source>Scratch/Planck.py</Source>
     <Source>Scratch/__init__.py</Source>
@@ -51,16 +53,114 @@
     <Form>MainWindow.ui</Form>
     <Form>Scanners/Display_SSI.ui</Form>
     <Form>Scanners/Display_Thermometer.ui</Form>
+    <Form>Scanners/ScannerSelector.ui</Form>
   </Forms>
-  <Translations/>
   <Resources>
     <Resource>resources.qrc</Resource>
   </Resources>
-  <Interfaces/>
-  <Others/>
   <MainScript>Grote.py</MainScript>
   <Vcs>
-    <VcsType>None</VcsType>
+    <VcsType>Git</VcsType>
+    <VcsOptions>
+      <dict>
+        <key>
+          <string>add</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>checkout</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>commit</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>diff</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>export</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>global</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>history</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>log</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>remove</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>status</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>tag</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>update</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+      </dict>
+    </VcsOptions>
   </Vcs>
   <FiletypeAssociations>
     <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>

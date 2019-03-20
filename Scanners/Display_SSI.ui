@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>275</width>
-    <height>268</height>
+    <height>304</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
-    <height>0</height>
+    <width>275</width>
+    <height>304</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -38,43 +38,34 @@
       <string>Signal Strength Indicator</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="1">
-       <widget class="QComboBox" name="Band"/>
-      </item>
-      <item row="5" column="1">
-       <widget class="QSpinBox" name="spinBox">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Band</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="Polarisation"/>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="DriverSelector" name="selector" native="true">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="buttonRun">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>10</height>
-         </size>
+        <property name="text">
+         <string>Run</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Sampling rate</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Averaging</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="2">
        <widget class="QLabel" name="label_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
@@ -90,21 +81,14 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Averaging</string>
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="spinBox_Averaging">
+        <property name="minimum">
+         <number>1</number>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Polarisation</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
+      <item row="5" column="1">
        <widget class="QPushButton" name="buttonStop">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
@@ -117,20 +101,20 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="buttonRun">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="Polarisation"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="SamplingRate"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Run</string>
+         <string>Band</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0" colspan="2">
+      <item row="7" column="0" colspan="2">
        <widget class="QLabel" name="label_SSI">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
@@ -146,29 +130,21 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_5">
+      <item row="2" column="1">
+       <widget class="QComboBox" name="Band"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>Sampling rate</string>
+         <string>Polarisation</string>
         </property>
        </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QComboBox" name="SamplingRate"/>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>DriverSelector</class>
-   <extends>QWidget</extends>
-   <header>Drivers.DriverSelector</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
