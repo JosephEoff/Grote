@@ -3,9 +3,9 @@ from Scanners.Scanner_SSI import Scanner_SSI
 from PyQt5.QtWidgets import QWidget
 from Scanners.Display_Base import Display_Base
 
-class Display_SSI( QWidget,  Ui_Display_SSI,  Display_Base):
+class Display_SSI(Ui_Display_SSI,  Display_Base):
     def __init__(self, parent):
-        super().__init__(parent)
+        super(QWidget, self).__init__(parent)
         self.setupUi(parent)
         self.scanner=None
         self.scannerThread=None

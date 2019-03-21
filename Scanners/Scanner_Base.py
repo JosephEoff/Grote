@@ -1,8 +1,10 @@
 from PyQt5.QtCore import QThread
 from PyQt5.QtCore import pyqtSignal
 from Drivers.CommunicationsError import CommunicationsError
+from abc import  abstractmethod
+from Scanners.Wedgies import MetaQThreadWedgie
 
-class ScannerBase(QThread):
+class ScannerBase(QThread,  metaclass=MetaQThreadWedgie):
     UpdateSignal=pyqtSignal(object)
     ErrorSignal=pyqtSignal(object)
     
@@ -40,6 +42,7 @@ class ScannerBase(QThread):
         except Exception as e:
            self.ErrorSignal.emit("Scan aborted: Error: "  +e.strerror)
     
+    @abstractmethod
     def runscan(self):
         #override and implement
         pass

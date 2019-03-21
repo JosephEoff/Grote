@@ -14,7 +14,6 @@ class DriverSelector( QWidget,  Ui_DriverSelector):
        self.setupUi(self)
        self.changeDriver()
 
-
     def setupUi(self, parent):
         super(DriverSelector, self).setupUi(parent)
         self.initializeDriverSelectorListl() 

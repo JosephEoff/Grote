@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2019-03-09, 18:00:13 -->
+<!-- Saved: 2019-03-21, 21:38:17 -->
 <!-- Copyright (C) 2019 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -25,6 +25,7 @@
     <Source>Drivers/Ui_DriverSelector.py</Source>
     <Source>Drivers/Ui_Karl.py</Source>
     <Source>Drivers/Ui_ScannerComport.py</Source>
+    <Source>Drivers/Wedgies.py</Source>
     <Source>Drivers/__init__.py</Source>
     <Source>Grote.py</Source>
     <Source>Scanners/Display_Base.py</Source>
@@ -39,6 +40,7 @@
     <Source>Scanners/Ui_Display_Scanner_Thermometer.py</Source>
     <Source>Scanners/Ui_Display_Thermometer.py</Source>
     <Source>Scanners/Ui_ScannerSelector.py</Source>
+    <Source>Scanners/Wedgies.py</Source>
     <Source>Scanners/__init__.py</Source>
     <Source>Scratch/Planck.py</Source>
     <Source>Scratch/__init__.py</Source>

@@ -6,9 +6,9 @@ from Drivers.CommunicationsError import CommunicationsError
 from Drivers.Ui_Karl import Ui_Widget_Karl
 from Drivers.Driver_Base import Driver_Base
 
-class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
+class Karl(Driver_Base, Ui_Widget_Karl):
     def __init__(self,  parent, MaxTimeout_mS=30000):
-        super().__init__(parent)
+        super(QWidget, self).__init__(parent)
         self.setupUi(self)
         self.REPLY_TIMEOUT_MS=100
         self.SettingsGroupName='ComPort'
@@ -19,30 +19,13 @@ class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
         self.comportUI.getComport().timeout= self.REPLY_TIMEOUT_MS  
         self.comportUI.getComport().write_timeout=self.REPLY_TIMEOUT_MS
         
-    def initializedOK(self):
-        if self.comportUI.getComport()==None:
-            return False
-        return self.comportUI.getComport().isOpen()
-            
-    def prepareForOperation(self):
-        self.openComport()
-        
     def openComport(self):        
         if self.comportUI.getComport()==None:
             return
         self.comportUI.lockComport()
         #Wait two seconds.  Once the comport has been opened, you have to wait two seconds for the Arduino to be ready
         time.sleep(2)
-        
-    def __ReadSamplingRateStringFromDevice(self):
-        return self.RequestValueFromScanner("QRS")
-       
-    def __ReadFrequencyBandsStringFromDevice(self):
-        return self.RequestValueFromScanner("QBS")
-        
-    def __ReadPolarizationsStringFromDevice(self):
-        return self.RequestValueFromScanner("QPS")
-        
+                
     def ReadInitialValues(self):
         if self.Cancel:
             return
@@ -56,8 +39,6 @@ class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
         if self.Cancel:
             return
         self.y_max=self.RequestValueFromScanner("QRY")
-        if self.Cancel:
-            return
     
     def RequestValueFromScanner(self,requeststring):
         valuestring=self.sendcommand(requeststring)
@@ -132,18 +113,54 @@ class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
         except:
             pass
         return reply
+
+    def getSignalStrength(self, OversamplingCount):
+        return self.RequestValueFromScanner_Parameter("QS",OversamplingCount)
+
+    def initializedOK(self):
+        if self.comportUI.getComport()==None:
+            return False
+        return self.comportUI.getComport().isOpen()
+            
+    def prepareForOperation(self):
+        self.openComport()
+
+##############
+##  Queries
+##############
+
+    def ReadSamplingRateStringFromDevice(self):
+        return self.RequestValueFromScanner("QRS")
+       
+    def ReadFrequencyBandsStringFromDevice(self):
+        return self.RequestValueFromScanner("QBS")
         
-    def getXHome(self):
-        return self.x_home
+    def ReadPolarizationsStringFromDevice(self):
+        return self.RequestValueFromScanner("QPS")
         
-    def getYHome(self):
-        return self.y_home    
+    def GetPolarizationIndexFromDevice(self):
+        return self.RequestValueFromScanner("QP")
+    
+    def GetFrequencyBandIndexFromDevice(self):
+        return self.RequestValueFromScanner("QB")
+              
+    def GetSamplingRateIndexFromDevice(self):
+        return self.RequestValueFromScanner("QR")
+
+##############
+##  Commands
+##############
+
+    def SetSamplingRate_Index(self,  SamplingRateIndex):
+        self.send("SS"+str(SamplingRateIndex))
         
-    def getXRange(self):
-        return self.x_max
-        
-    def getYRange(self):
-        return self.y_max    
+    def SetPolarizationIndex(self,  PolarizationIndex):
+        #Implement in the derived class
+        return ""
+    
+    def SetFrequencyBandIndex(self,  BandIndex):
+        #Implement in the derived class
+        return "" 
         
     def parkScanner(self):
         self.sendcommand("GH")
@@ -153,7 +170,4 @@ class Karl(QWidget,  Driver_Base, Ui_Widget_Karl):
         
     def moveY(self, YCoord):
          self.sendcommand("GY"+str(YCoord))
-         
-    def getSignalStrength(self, OversamplingCount):
-        return self.RequestValueFromScanner_Parameter("QS",OversamplingCount)
          
