@@ -5,7 +5,7 @@ from Drivers.Ui_DriverSelector import Ui_DriverSelector
 from Drivers.Karl import Karl
 
 class DriverSelector( QWidget,  Ui_DriverSelector):
-    selectedDriverChanged=pyqtSignal()
+    selectedDriverChanged=pyqtSignal(object)
     
     def  __init__(self,parent):
        super().__init__(parent)
@@ -57,6 +57,7 @@ class DriverSelector( QWidget,  Ui_DriverSelector):
         if self.comboBoxDriverSelector.currentText()=="Karl":
             self.driver=Karl(self)
             self.gridLayoutDriver.addWidget(self.driver)
+            self.selectedDriverChanged.emit(self.driver)
             
     def removeDriver(self):
         while self.gridLayoutDriver.count():

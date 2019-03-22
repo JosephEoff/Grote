@@ -35,12 +35,11 @@ class ScannerBase(QThread,  metaclass=MetaQThreadWedgie):
     
     def doRunScan(self):
         try:
-            self.driver.ReadInitialValues()
             self.runscan()
         except CommunicationsError as e:
             self.ErrorSignal.emit("Scan aborted: Communications error: " + e.value)        
         except Exception as e:
-           self.ErrorSignal.emit("Scan aborted: Error: "  +e.strerror)
+           self.ErrorSignal.emit("Scan aborted: Error: "  + str(e))
     
     @abstractmethod
     def runscan(self):

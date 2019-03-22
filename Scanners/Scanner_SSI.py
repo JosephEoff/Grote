@@ -2,7 +2,7 @@ from Scanners.Scanner_Base import ScannerBase
 from datetime import datetime
 from DataStructures.ScannerDataPoint import ScannerDataPoint
 
-class Scanner_SSI(ScannerBase):    
+class Scanner_SSI(ScannerBase):
     def sendSignalUpdate(self,  x, y, SignalStrength):
         timestamp=datetime.utcnow()
         datapoint=ScannerDataPoint(timestamp, x, y, SignalStrength)
@@ -16,6 +16,6 @@ class Scanner_SSI(ScannerBase):
         x=self.driver.getXHome()
         y=self.driver.getYHome()
         while self.keepRunning:
-            ssi=self.driver.getSignalStrength(80)
+            ssi=self.driver.getSignalStrength(self.OversamplingCount)
             self.sendSignalUpdate(x, y, ssi)  
     

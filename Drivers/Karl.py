@@ -9,6 +9,7 @@ from Drivers.Driver_Base import Driver_Base
 class Karl(Driver_Base, Ui_Widget_Karl):
     def __init__(self,  parent, MaxTimeout_mS=30000):
         super(QWidget, self).__init__(parent)
+        super().__init__()
         self.setupUi(self)
         self.REPLY_TIMEOUT_MS=100
         self.SettingsGroupName='ComPort'
@@ -47,7 +48,11 @@ class Karl(Driver_Base, Ui_Widget_Karl):
     def RequestValueFromScanner_Parameter(self,requeststring,parameter):
         valuestring=self.sendcommand(requeststring+str(parameter))
         return float(self.GetValueFromString(requeststring,valuestring))
-              
+    
+    def RequestStringFromScanner(self,  requeststring):
+        valuestring=self.sendcommand(requeststring)
+        return self.GetValueFromString(requeststring,valuestring)
+    
     def GetValueFromString(self,requeststring,scanstring):
         value="0"
         answerstring=str.strip(requeststring,"Q")
@@ -67,7 +72,7 @@ class Karl(Driver_Base, Ui_Widget_Karl):
         else:
             raise CommunicationsError("Expected Response: " + answerstring + " Received: " + scanstring)
         return value
-        
+    
     def CancelCommand(self):
         self.Cancel=True
      
@@ -101,7 +106,7 @@ class Karl(Driver_Base, Ui_Widget_Karl):
             waittime=waittime+self.REPLY_TIMEOUT_MS
             
         if len(reply)>0:
-            replystring=str(reply, encoding='ascii')
+            replystring=str(reply, encoding='utf-8')
         
         print("Received: " + replystring)
         return replystring
@@ -130,13 +135,13 @@ class Karl(Driver_Base, Ui_Widget_Karl):
 ##############
 
     def ReadSamplingRateStringFromDevice(self):
-        return self.RequestValueFromScanner("QRS")
-       
+        return self.RequestStringFromScanner("QRS")
+        
     def ReadFrequencyBandsStringFromDevice(self):
-        return self.RequestValueFromScanner("QBS")
+        return self.RequestStringFromScanner("QBS")
         
     def ReadPolarizationsStringFromDevice(self):
-        return self.RequestValueFromScanner("QPS")
+        return self.RequestStringFromScanner("QPS")
         
     def GetPolarizationIndexFromDevice(self):
         return self.RequestValueFromScanner("QP")
@@ -146,6 +151,9 @@ class Karl(Driver_Base, Ui_Widget_Karl):
               
     def GetSamplingRateIndexFromDevice(self):
         return self.RequestValueFromScanner("QR")
+        
+    def GetSSIUnitFromDevice(self):
+        return self.RequestStringFromScanner("QU")
 
 ##############
 ##  Commands
@@ -153,14 +161,15 @@ class Karl(Driver_Base, Ui_Widget_Karl):
 
     def SetSamplingRate_Index(self,  SamplingRateIndex):
         self.send("SS"+str(SamplingRateIndex))
+        self.samplingrateindex=self.GetSamplingRateIndexFromDevice()
         
     def SetPolarizationIndex(self,  PolarizationIndex):
-        #Implement in the derived class
-        return ""
-    
+        self.send("SP"+str(PolarizationIndex))
+        self.polarisationindex=self.GetPolarizationIndexFromDevice()
+        
     def SetFrequencyBandIndex(self,  BandIndex):
-        #Implement in the derived class
-        return "" 
+        self.send("SB" + str(BandIndex))
+        self.frequencybandindex=self.GetFrequencyBandIndexFromDevice()
         
     def parkScanner(self):
         self.sendcommand("GH")

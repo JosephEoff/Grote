@@ -58,6 +58,8 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = GroteMainWindow()
     ui.setupUi(MainWindow)
+    ui.driver.selectedDriverChanged.connect(ui.scanner.ChangeDriver)
+    ui.scanner.ChangeDriver(ui.driver.getDriver())
     MainWindow.show()
     sys.exit(app.exec_())
 

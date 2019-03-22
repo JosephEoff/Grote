@@ -10,6 +10,7 @@ class Driver_Base (QWidget, metaclass=MetaQWidgetWedgie):
         self.frequencybandindex=0
         self.polarizations=[]
         self.polarisationindex=0
+        self.SSIUnit=""
         self.x_home=0
         self.y_home=0
         self.x_max=0
@@ -29,21 +30,40 @@ class Driver_Base (QWidget, metaclass=MetaQWidgetWedgie):
 
     def getSamplingRatesList(self):
         return self.samplingrates
+    
+    def getSamplingRate_SelectedIndex(self):
+        return self.samplingrateindex
+        
+    def getPolarizationList(self):
+        return self.polarizations
+        
+    def getPolarization_SelectedIndex(self):
+        return self.polarisationindex
+    
+    def getFrequencyBandsList(self):
+        return self.frequencyBands
+    
+    def getFrequencyBands_SelectedIndex(self):
+        return self.frequencybandindex
+        
+    def getSSIUnit(self):
+        return self.SSIUnit
 
     def ReadParametersFromDevice(self):
         self.samplingrates=self.__splitOptionStringToList(self.ReadSamplingRateStringFromDevice())
-        self.frequencyBands=self.__splitOptionStringToList(self.ReadFrequencyBandsStringFromDevice)
+        self.frequencyBands=self.__splitOptionStringToList(self.ReadFrequencyBandsStringFromDevice())
         self.polarizations=self.__splitOptionStringToList(self.ReadPolarizationsStringFromDevice())
         self.polarisationindex=self.GetPolarizationIndexFromDevice()
         self.frequencybandindex=self.GetFrequencyBandIndexFromDevice()
         self.samplingrateindex= self.GetSamplingRateIndexFromDevice()
+        self.SSIUnit=self.GetSSIUnitFromDevice()
         self.ReadInitialValues()
 
     def __splitOptionStringToList(self, StringToSplit):
         if not StringToSplit:
             return []
         items=StringToSplit.split(",")
-        return items;
+        return items
 
     @abstractmethod
     def ReadInitialValues(self):
@@ -90,6 +110,11 @@ class Driver_Base (QWidget, metaclass=MetaQWidgetWedgie):
     def GetSamplingRateIndexFromDevice(self):
         #Implement in the derived class
         return "" 
+    
+    @abstractmethod        
+    def GetSSIUnitFromDevice(self):
+        #Implement in the derived class
+        return "" 
         
 ##############
 ##  Commands
@@ -101,13 +126,11 @@ class Driver_Base (QWidget, metaclass=MetaQWidgetWedgie):
         
     @abstractmethod
     def SetPolarizationIndex(self,  PolarizationIndex):
-        #Implement in the derived class
-        return ""
+        pass
     
     @abstractmethod
     def SetFrequencyBandIndex(self,  BandIndex):
-        #Implement in the derived class
-        return "" 
+        pass
 
     @abstractmethod
     def parkScanner(self):

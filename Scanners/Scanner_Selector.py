@@ -1,6 +1,6 @@
 from Scanners.Ui_ScannerSelector import Ui_ScannerSelector
-from PyQt5.QtWidgets import QWidget, QPushButton
-from PyQt5.QtCore import QSettings,  pyqtSignal
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import QSettings,  pyqtSignal , pyqtSlot
 from Scanners.Display_SSI import Display_SSI
 from Scanners.Display_Thermometer import Display_Thermometer
 
@@ -9,6 +9,7 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
         super().__init__(parent)
         self.SettingsGroupName='Scanner'
         self.scanner=None
+        self.driver=None
         self.setupUi(self)
     
     def setupUi(self, parent):
@@ -46,7 +47,7 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
     def changeScanner(self):
         self.removeScanner()
         if self.comboBox.currentText()=="Signal Strength Indicator":
-            self.scanner=Display_SSI(self)
+            self.scanner=Display_SSI(self, self.driver)
         if self.comboBox.currentText()=="Thermometer":
             self.scanner=Display_Thermometer(self)
         
@@ -57,7 +58,6 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
             self.adjustSize()
             print(self.verticalLayout_Scanner.indexOf(self.scanner))
             
-        
     def removeScanner(self):
         if self.scanner is None:
             return
@@ -66,3 +66,9 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
         
     def getScanner(self):
         return self.Scanner;
+
+    @pyqtSlot(object)
+    def ChangeDriver(self,  driver):
+        if not driver is None:
+            self.driver=driver
+    
