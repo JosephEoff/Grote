@@ -122,15 +122,15 @@ class Driver_Base (QWidget, metaclass=MetaQWidgetWedgie):
 
     @abstractmethod
     def SetSamplingRate_Index(self,  SamplingRateIndex):
-        pass
+        return -1
         
     @abstractmethod
     def SetPolarizationIndex(self,  PolarizationIndex):
-        pass
+        return -1
     
     @abstractmethod
     def SetFrequencyBandIndex(self,  BandIndex):
-        pass
+        return -1
 
     @abstractmethod
     def parkScanner(self):

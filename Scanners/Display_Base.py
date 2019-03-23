@@ -7,6 +7,8 @@ class Display_Base(QWidget, metaclass=MetaQWidgetWedgie):
     def __init__(self, parent,  driver):
         super(QWidget, self).__init__(parent)
         self.driver=driver
+        self.scanner=None
+        self.scannerThread=None
         
         if not self.driver is None:
             self.driver.prepareForOperation()
@@ -14,8 +16,6 @@ class Display_Base(QWidget, metaclass=MetaQWidgetWedgie):
                 self.driver.ReadParametersFromDevice()
 
         self.setupUi(parent)
-        self.scanner=None
-        self.scannerThread=None
        
     def ShowErrorMessage(self, message):
         self.stop()
@@ -25,6 +25,22 @@ class Display_Base(QWidget, metaclass=MetaQWidgetWedgie):
         msg.setStandardButtons(QMessageBox.Ok )
         msg.exec_()        
         
+    def ChangePolarisation(self,  currentIndex):
+        if self.scanner is not None:
+            self.scanner.ChangePolarisation(currentIndex)
+        
+    def ChangeSamplingRate(self,  currentIndex):
+        if self.scanner is not None:
+            self.scanner.ChangeSamplingRate(currentIndex)
+    
+    def ChangeBand(self,  currentIndex):
+        if self.scanner is not None:
+            self.scanner.ChangeBand(currentIndex)
+            
+    def ChangeAveraging(self,  currentAveraging):
+        if self.scanner is not None:
+            self.scanner.ChangeAveraging(currentAveraging)
+            
     @abstractmethod
     def stop(self):
         #Overwrite in derived class

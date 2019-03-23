@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import QSettings
 import time
 from Drivers.CommunicationsError import CommunicationsError
 
@@ -160,16 +159,19 @@ class Karl(Driver_Base, Ui_Widget_Karl):
 ##############
 
     def SetSamplingRate_Index(self,  SamplingRateIndex):
-        self.send("SS"+str(SamplingRateIndex))
+        self.sendcommand("SS"+str(SamplingRateIndex))
         self.samplingrateindex=self.GetSamplingRateIndexFromDevice()
+        return self.samplingrateindex
         
     def SetPolarizationIndex(self,  PolarizationIndex):
-        self.send("SP"+str(PolarizationIndex))
+        self.sendcommand("SP"+str(PolarizationIndex))
         self.polarisationindex=self.GetPolarizationIndexFromDevice()
+        return self.polarisationindex
         
     def SetFrequencyBandIndex(self,  BandIndex):
-        self.send("SB" + str(BandIndex))
+        self.sendcommand("SB" + str(BandIndex))
         self.frequencybandindex=self.GetFrequencyBandIndexFromDevice()
+        return self.frequencybandindex
         
     def parkScanner(self):
         self.sendcommand("GH")

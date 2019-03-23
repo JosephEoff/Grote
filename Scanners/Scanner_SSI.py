@@ -16,6 +16,7 @@ class Scanner_SSI(ScannerBase):
         x=self.driver.getXHome()
         y=self.driver.getYHome()
         while self.keepRunning:
+            self.SendScannerSettingsToDeviceIfNeeded()
             ssi=self.driver.getSignalStrength(self.OversamplingCount)
             self.sendSignalUpdate(x, y, ssi)  
     
