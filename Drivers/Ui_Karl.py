@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Drivers/Karl.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Widget_Karl(object):
     def setupUi(self, Widget_Karl):
@@ -28,8 +30,8 @@ class Ui_Widget_Karl(object):
     def retranslateUi(self, Widget_Karl):
         _translate = QtCore.QCoreApplication.translate
         Widget_Karl.setWindowTitle(_translate("Widget_Karl", "Form"))
-
 from Drivers.ScannerComport import ScannerComport
+
 
 if __name__ == "__main__":
     import sys
@@ -39,4 +41,3 @@ if __name__ == "__main__":
     ui.setupUi(Widget_Karl)
     Widget_Karl.show()
     sys.exit(app.exec_())
-

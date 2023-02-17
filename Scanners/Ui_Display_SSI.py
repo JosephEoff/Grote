@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_SSI.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Display_SSI(object):
     def setupUi(self, Display_SSI):
@@ -115,4 +117,3 @@ if __name__ == "__main__":
     ui.setupUi(Display_SSI)
     Display_SSI.show()
     sys.exit(app.exec_())
-

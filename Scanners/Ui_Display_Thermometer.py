@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/Display_Thermometer.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Display_Thermometer(object):
     def setupUi(self, Display_Thermometer):
@@ -100,4 +102,3 @@ if __name__ == "__main__":
     ui.setupUi(Display_Thermometer)
     Display_Thermometer.show()
     sys.exit(app.exec_())
-

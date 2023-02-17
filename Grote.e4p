@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project Grote -->
-<!-- Saved: 2019-03-21, 21:38:17 -->
-<!-- Copyright (C) 2019 ,  -->
+<!-- Saved: 2023-02-15, 21:20:43 -->
+<!-- Copyright (C) 2023 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
   <Hash>db21216ce3efd4bff7f6bc6431c5c21e368387e1</Hash>
@@ -29,12 +29,15 @@
     <Source>Drivers/__init__.py</Source>
     <Source>Grote.py</Source>
     <Source>Scanners/Display_Base.py</Source>
+    <Source>Scanners/Display_Photo.py</Source>
     <Source>Scanners/Display_SSI.py</Source>
     <Source>Scanners/Display_Thermometer.py</Source>
     <Source>Scanners/Scanner_Base.py</Source>
+    <Source>Scanners/Scanner_Photo.py</Source>
     <Source>Scanners/Scanner_SSI.py</Source>
     <Source>Scanners/Scanner_Selector.py</Source>
     <Source>Scanners/Scanner_Thermometer.py</Source>
+    <Source>Scanners/Ui_Display_Photo.py</Source>
     <Source>Scanners/Ui_Display_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_SSI.py</Source>
     <Source>Scanners/Ui_Display_Scanner_Thermometer.py</Source>
@@ -53,6 +56,7 @@
     <Form>Drivers/Karl.ui</Form>
     <Form>Drivers/ScannerComport.ui</Form>
     <Form>MainWindow.ui</Form>
+    <Form>Scanners/Display_Photo.ui</Form>
     <Form>Scanners/Display_SSI.ui</Form>
     <Form>Scanners/Display_Thermometer.ui</Form>
     <Form>Scanners/ScannerSelector.ui</Form>

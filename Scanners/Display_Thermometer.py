@@ -4,12 +4,12 @@ from Scanners.Display_Base import Display_Base
 from PyQt5.QtWidgets import QWidget
 
 class Display_Thermometer( Ui_Display_Thermometer,  Display_Base):
-    def __init__(self, parent):
-        super(QWidget, self).__init__(parent)
-        self.setupUi(self)
-        self.scanner=None
-        self.scannerThread=None
-        self.unit=0
+#    def __init__(self, parent):
+#        super(QWidget, self).__init__(parent)
+#        self.setupUi(self)
+#        self.scanner=None
+#        self.scannerThread=None
+#        self.unit=0
 
     def setupUi(self, parent):
         super(Display_Thermometer, self).setupUi(self)

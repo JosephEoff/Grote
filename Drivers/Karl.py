@@ -6,7 +6,7 @@ from Drivers.Ui_Karl import Ui_Widget_Karl
 from Drivers.Driver_Base import Driver_Base
 
 class Karl(Driver_Base, Ui_Widget_Karl):
-    def __init__(self,  parent, MaxTimeout_mS=30000):
+    def __init__(self,  parent, MaxTimeout_mS=3000):
         super(QWidget, self).__init__(parent)
         super().__init__()
         self.setupUi(self)

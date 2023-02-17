@@ -2,16 +2,18 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/MainWindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(358, 388)
+        MainWindow.resize(414, 755)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/Dish_Icon"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -56,21 +58,16 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.Tab_Scan)
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.scanner = Scanner_Selector(self.Tab_Scan)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scanner.sizePolicy().hasHeightForWidth())
         self.scanner.setSizePolicy(sizePolicy)
         self.scanner.setObjectName("scanner")
-        self.horizontalLayout_3.addWidget(self.scanner)
+        self.horizontalLayout_3.addWidget(self.scanner, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.gridLayout.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem2, 1, 0, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem3, 0, 1, 1, 1)
         self.tabWidget.addTab(self.Tab_Scan, "")
         self.Tab_Analyze = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
@@ -92,7 +89,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 358, 30))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 414, 30))
         self.menuBar.setObjectName("menuBar")
         self.menuFile = QtWidgets.QMenu(self.menuBar)
         self.menuFile.setObjectName("menuFile")
@@ -126,11 +123,11 @@ class Ui_MainWindow(object):
         self.actionExit.setText(_translate("MainWindow", "&Exit"))
         self.actionSave.setText(_translate("MainWindow", "&Save"))
         self.actionImport_CSV_Convert_dBm_to_mW.setText(_translate("MainWindow", "Import CSV (Convert dBm to mW)"))
-
 from Drivers.DriverSelector import DriverSelector
 from Scanners.Scanner_Selector import Scanner_Selector
 from pyqtgraph import ImageView
 import resources_rc
+
 
 if __name__ == "__main__":
     import sys
@@ -140,4 +137,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-

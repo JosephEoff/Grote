@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QSettings,  pyqtSignal , pyqtSlot
 from Scanners.Display_SSI import Display_SSI
 from Scanners.Display_Thermometer import Display_Thermometer
+from Scanners.Display_Photo import Display_Photo
 
 class Scanner_Selector( QWidget,  Ui_ScannerSelector):
     def __init__(self, parent):
@@ -23,6 +24,7 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
     def intializeScannerList(self):
         self.comboBox.addItem('Signal Strength Indicator','Signal Strength Indicator')
         self.comboBox.addItem('Thermometer','Thermometer')
+        self.comboBox.addItem('Photo','Photo')
     
     def triggerSaveSettings(self,  index):
         self.saveSettings()
@@ -49,7 +51,9 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
         if self.comboBox.currentText()=="Signal Strength Indicator":
             self.scanner=Display_SSI(self, self.driver)
         if self.comboBox.currentText()=="Thermometer":
-            self.scanner=Display_Thermometer(self)
+            self.scanner=Display_Thermometer(self, self.driver)
+        if self.comboBox.currentText()=="Photo":
+            self.scanner=Display_Photo(self, self.driver)
         
         if not self.scanner is None:
             self.verticalLayout_Scanner.addWidget(self.scanner)
@@ -71,4 +75,5 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
     def ChangeDriver(self,  driver):
         if not driver is None:
             self.driver=driver
+
     

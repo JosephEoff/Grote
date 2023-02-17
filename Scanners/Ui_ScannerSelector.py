@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file '/home/dev/EricProjects/Grote/Scanners/ScannerSelector.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_ScannerSelector(object):
     def setupUi(self, ScannerSelector):
@@ -21,6 +23,7 @@ class Ui_ScannerSelector(object):
         self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout_Scanner = QtWidgets.QVBoxLayout()
+        self.verticalLayout_Scanner.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
         self.verticalLayout_Scanner.setObjectName("verticalLayout_Scanner")
         self.comboBox = QtWidgets.QComboBox(ScannerSelector)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Fixed)
@@ -31,10 +34,8 @@ class Ui_ScannerSelector(object):
         self.comboBox.setMinimumSize(QtCore.QSize(0, 32))
         self.comboBox.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
         self.comboBox.setObjectName("comboBox")
-        self.verticalLayout_Scanner.addWidget(self.comboBox)
+        self.verticalLayout_Scanner.addWidget(self.comboBox, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.verticalLayout.addLayout(self.verticalLayout_Scanner)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem)
 
         self.retranslateUi(ScannerSelector)
         QtCore.QMetaObject.connectSlotsByName(ScannerSelector)
@@ -52,4 +53,3 @@ if __name__ == "__main__":
     ui.setupUi(ScannerSelector)
     ScannerSelector.show()
     sys.exit(app.exec_())
-
