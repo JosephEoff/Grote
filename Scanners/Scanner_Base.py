@@ -37,6 +37,10 @@ class ScannerBase(QThread,  metaclass=MetaQThreadWedgie):
         self.driver.prepareForOperation()
         if self.driver.initializedOK():
             self.doRunScan()
+            self.driver.CancelCommand()
+            self.driver.parkScanner()
+            self.driver.disconnectDriver()
+
         else:
             self.ErrorSignal.emit("Error.  Comport couldn't be opened.  Scan aborted.")
     

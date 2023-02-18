@@ -19,7 +19,6 @@ class Scanner_Photo(ScannerBase):
         step = 1
         for x in range(self.driver.getXHome(), self.driver.getXRange()):
             if not self.keepRunning:
-                self.driver.parkScanner()
                 return
             self.driver.moveX(x)
 #            if x % 2 == 0:
@@ -32,7 +31,6 @@ class Scanner_Photo(ScannerBase):
 #                step = -1
             for y in range(y1,  y2,  step): 
                 if not self.keepRunning:
-                    self.driver.parkScanner()
                     return
                 self.driver.moveY(y)
                 ssi=self.driver.getSignalStrength(self.OversamplingCount)

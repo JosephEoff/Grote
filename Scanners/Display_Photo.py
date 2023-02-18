@@ -32,8 +32,7 @@ class Display_Photo(Ui_Display_Photo,  Display_Base):
             self.scanner = None
 
     def run(self):
-        if self.scanner is not None:
-            return
+        self.stop()
         self.preview.view.invertY(False)
         self.picturearray = np.zeros((self.driver.getXRange(), self.driver.getYRange()))
         self.preview.setImage(self.picturearray)
