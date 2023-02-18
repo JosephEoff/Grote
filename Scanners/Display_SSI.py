@@ -36,3 +36,6 @@ class Display_SSI(Ui_Display_SSI,  Display_Base):
 
     def displaySSI(self, scannerData):
         self.label_SSI.setText(str(scannerData.Value) + self.driver.getSSIUnit())
+        
+    def  serializeData(self):
+        pass

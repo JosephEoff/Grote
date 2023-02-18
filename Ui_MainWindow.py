@@ -102,9 +102,12 @@ class Ui_MainWindow(object):
         self.actionSave.setObjectName("actionSave")
         self.actionImport_CSV_Convert_dBm_to_mW = QtWidgets.QAction(MainWindow)
         self.actionImport_CSV_Convert_dBm_to_mW.setObjectName("actionImport_CSV_Convert_dBm_to_mW")
-        self.menuFile.addAction(self.actionImport_CSV_Convert_dBm_to_mW)
-        self.menuFile.addAction(self.actionImport_CSV)
+        self.actionLoad = QtWidgets.QAction(MainWindow)
+        self.actionLoad.setObjectName("actionLoad")
+        self.menuFile.addAction(self.actionLoad)
         self.menuFile.addAction(self.actionSave)
+        self.menuFile.addAction(self.actionImport_CSV)
+        self.menuFile.addAction(self.actionImport_CSV_Convert_dBm_to_mW)
         self.menuFile.addAction(self.actionExit)
         self.menuBar.addAction(self.menuFile.menuAction())
 
@@ -123,6 +126,7 @@ class Ui_MainWindow(object):
         self.actionExit.setText(_translate("MainWindow", "&Exit"))
         self.actionSave.setText(_translate("MainWindow", "&Save"))
         self.actionImport_CSV_Convert_dBm_to_mW.setText(_translate("MainWindow", "Import CSV (Convert dBm to mW)"))
+        self.actionLoad.setText(_translate("MainWindow", "&Load"))
 from Drivers.DriverSelector import DriverSelector
 from Scanners.Scanner_Selector import Scanner_Selector
 from pyqtgraph import ImageView

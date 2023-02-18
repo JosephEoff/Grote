@@ -40,3 +40,6 @@ class Display_Thermometer( Ui_Display_Thermometer,  Display_Base):
         
     def displaySSI(self, scannerData):
         self.label_SSI.setText(str(scannerData.Value))
+        
+    def  serializeData(self):
+        pass

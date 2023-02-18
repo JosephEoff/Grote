@@ -69,11 +69,13 @@ class Scanner_Selector( QWidget,  Ui_ScannerSelector):
         self.scanner=None
         
     def getScanner(self):
-        return self.Scanner;
+        return self.scanner;
 
     @pyqtSlot(object)
     def ChangeDriver(self,  driver):
         if not driver is None:
             self.driver=driver
 
+    def  serializeData(self):
+        pass
     

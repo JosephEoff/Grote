@@ -49,3 +49,7 @@ class Display_Base(QWidget, metaclass=MetaQWidgetWedgie):
     @abstractmethod
     def run(self):
         pass
+
+    @abstractmethod
+    def  serializeData(self):
+        pass

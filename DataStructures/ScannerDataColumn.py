@@ -1,4 +1,3 @@
-from DataStructures.ScannerDataPoint import ScannerDataPoint
 from datetime import datetime
 
 class ScannerDataColumn:

@@ -151,9 +151,10 @@
     <property name="title">
      <string>Fi&amp;le</string>
     </property>
-    <addaction name="actionImport_CSV_Convert_dBm_to_mW"/>
-    <addaction name="actionImport_CSV"/>
+    <addaction name="actionLoad"/>
     <addaction name="actionSave"/>
+    <addaction name="actionImport_CSV"/>
+    <addaction name="actionImport_CSV_Convert_dBm_to_mW"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menuFile"/>
@@ -176,6 +177,11 @@
   <action name="actionImport_CSV_Convert_dBm_to_mW">
    <property name="text">
     <string>Import CSV (Convert dBm to mW)</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>&amp;Load</string>
    </property>
   </action>
  </widget>

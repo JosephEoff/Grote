@@ -1,12 +1,12 @@
 from Scanners.Ui_Display_Photo import Ui_Display_Photo
 from Scanners.Scanner_Photo import Scanner_Photo
 from Scanners.Display_Base import Display_Base
-from DataStructures.ScannerDataColumn import ScannerDataColumn
+from DataStructures.ScannerData_Base import ScannerData_Base
 import numpy as np
 
 class Display_Photo(Ui_Display_Photo,  Display_Base):
-    datadictionary = dict()
-    picturearray = np.empty((1, 1))
+    scandata = ScannerData_Base(None)
+    picturearray = np.zeros((1, 1))
     
     def setupUi(self, parent):
         super(Display_Photo, self).setupUi(self)
@@ -34,14 +34,15 @@ class Display_Photo(Ui_Display_Photo,  Display_Base):
     def run(self):
         if self.scanner is not None:
             return
-        self.picturearray = np.empty((self.driver.getXRange(), self.driver.getXRange()))
+        self.preview.view.invertY(False)
+        self.picturearray = np.zeros((self.driver.getXRange(), self.driver.getYRange()))
         self.preview.setImage(self.picturearray)
         self.preview.adjustSize()
         self.groupBox_Display.adjustSize()
         self.groupBox_Controls.adjustSize()
         self.adjustSize()
-        self.datadictionary = dict()
         self.scanner = Scanner_Photo(self.driver, self.spinBox_Averaging.value(),  self.Band.currentIndex(),  self.Polarisation.currentIndex(),  self.SamplingRate.currentIndex())
+        self.scandata = ScannerData_Base(self.scanner)
         self.scanner.UpdateSignal.connect(self.displayPhoto)
         self.scanner.ErrorSignal.connect(self.handleError)
         self.scanner.start()
@@ -50,17 +51,16 @@ class Display_Photo(Ui_Display_Photo,  Display_Base):
         self.ShowErrorMessage(errormessage)
 
     def displayPhoto(self, scannerData):
-        if  not scannerData.Scanner_Coordinate_X in self.datadictionary:
-            datacolumn = ScannerDataColumn()
-            self.datadictionary[scannerData.Scanner_Coordinate_X] = datacolumn
-        self.datadictionary[scannerData.Scanner_Coordinate_X].AddDataPoint(scannerData)
+        self.scandata.StoreDataPoint(scannerData.Scanner_Coordinate_X,  scannerData)
         self.redrawPhoto(scannerData)
             
     def redrawPhoto(self,  scannerData):
         self.picturearray[scannerData.Scanner_Coordinate_X][scannerData.Scanner_Coordinate_Y] = scannerData.Value
         self.preview.setImage(self.picturearray)
         self.preview.adjustSize()
-        self.preview.view.invertY(False)
         self.groupBox_Display.adjustSize()
         self.groupBox_Controls.adjustSize()
         self.adjustSize()
+
+    def  serializeData(self):
+        return self.scandata.Serialize()
