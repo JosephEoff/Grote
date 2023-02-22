@@ -14,27 +14,15 @@ class Scanner_Photo(ScannerBase):
             
         self.driver.parkScanner()
         self.SendScannerSettingsToDeviceIfNeeded()
-        y1 =self.driver.getYHome()
-        y2 = self.driver.getYRange()
-        step = 1
         for x in range(self.driver.getXHome(), self.driver.getXRange()):
             if not self.keepRunning:
                 return
             self.driver.moveX(x)
-#            if x % 2 == 0:
-#                y1 =self.driver.getYHome()
-#                y2 = self.driver.getYRange()
-#                step = 1
-#            else:
-#                y2 =self.driver.getYHome() -1
-#                y1 = self.driver.getYRange() -1
-#                step = -1
-            for y in range(y1,  y2,  step): 
+            for y in range(self.driver.getYHome(), self.driver.getYRange() ,  1): 
                 if not self.keepRunning:
                     return
                 self.driver.moveY(y)
                 ssi=self.driver.getSignalStrength(self.OversamplingCount)
                 self.sendSignalUpdate(x, y, ssi)
 
-            
         self.driver.parkScanner()
